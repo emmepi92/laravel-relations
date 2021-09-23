@@ -2,7 +2,7 @@
 
 header {
   text-align: center;
-  padding: 24px 0;
+  padding: 24px;
 }
 
 header img {
@@ -28,14 +28,31 @@ nav {
   padding: 12px;
 }
 
+.articol-card-inner h3 {
+  font-weight: bold;
+  flex-grow: 1;
+}
+
 .articol-card-inner img {
   width: 100%;
+}
+
+.articol-card-inner p {
+  flex-grow: 1;
 }
 
 .show .articol {
   background-color: white;
   padding: 12px;
   border-radius: 10px;
+}
+
+.show .articol .card-title {
+  text-align: center;
+}
+
+.show .articol p {
+  font-size: 18px;
 }
 
 .show .articol img {
@@ -11003,5 +11020,10 @@ a {
 
 a:hover {
   color: green;
+}
+
+.reset-padding-container {
+  padding-left: 0;
+  padding-right: 0;
 }
 

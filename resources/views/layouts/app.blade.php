@@ -21,8 +21,7 @@
 </head>
 <body>
     <header class="container container-custom">
-        <a href="{{ route('home') }}"><img src="/img/logo_boolbblica.png" alt="Logo Boolbblica"></a>
-        
+        <a href="{{ route('home') }}"><img src="/img/logo_boolbblica.png" alt="Logo Boolbblica"></a>        
     </header>
 
     <div class="container">

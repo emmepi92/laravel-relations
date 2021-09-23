@@ -12,17 +12,18 @@
     <form action="{{ route('articols.store') }}" method='POST'>
         @csrf
         <div class="form-group">
-            <label for="title">Titolo</label>
-            <input type="text" class="form-control" name="title" id="title">
+            <label for="title">Titolo:</label>
+            <input type="text" class="form-control" name="title" id="title" placeholder="Scrivi qui il titolo">
         </div>
     
         <div class="form-group">
+            <label for="articol_content">Testo:</label>
             <textarea id="articol_content" name="articol_content" rows="5" placeholder="Scrivi qui il tuo articolo..."></textarea>
         </div>
     
         <div class="form-group">
-            <label for="img_path">Url Immagine</label>
-            <input type="text" class="form-control" name="img_path" id="img_path">
+            <label for="img_path">Url Immagine:</label>
+            <input type="text" class="form-control" name="img_path" id="img_path" placeholder="incolla qui l'url della tua immagine">
         </div>
 
         <div class="form-group">
@@ -39,7 +40,7 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-success">Submit</button>
     
     </form>
 

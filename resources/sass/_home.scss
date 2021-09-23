@@ -11,8 +11,17 @@
         height: 100%;
         padding: 12px;
 
+        h3 {
+            font-weight: bold;
+            flex-grow: 1;
+        }
+
         img {
             width: 100%;
+        }
+        p{
+            flex-grow: 1;
+
         }
 
     }

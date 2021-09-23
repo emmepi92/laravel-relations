@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container ">
+<div class="container reset-padding-container">
     <div class="row">
         @foreach ($articols as $articol)
         <div class="col-12 col-md-6 col-lg-4 articol-card">

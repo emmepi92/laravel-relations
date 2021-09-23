@@ -1,12 +1,19 @@
 .show{
-
     .articol {
         background-color: white;
         padding: 12px;
         border-radius: 10px;
 
+        .card-title {
+            text-align: center;
+        }
+        
+        p {
+            font-size:18px;
+        }
         img{
             width: 100%;
         }
+
     }
 }

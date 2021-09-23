@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $articols = Articol::paginate(9);
+        $articols = Articol::paginate(12);
 
         foreach($articols as $articol) {
 
