@@ -65,6 +65,7 @@ class ArticolController extends Controller
     public function show($id)
     {
         $articol = Articol::find($id);
+        $articol->title = ucwords($articol->title);
         return view('articols.show', compact('articol'));
     }
 

@@ -5,6 +5,11 @@ header {
   padding: 24px 0;
 }
 
+header img {
+  max-width: 100%;
+  min-width: 100px;
+}
+
 nav {
   margin-top: 24px;
   border-radius: 10px;
@@ -24,6 +29,16 @@ nav {
 }
 
 .articol-card-inner img {
+  width: 100%;
+}
+
+.show .articol {
+  background-color: white;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.show .articol img {
   width: 100%;
 }
 
@@ -10980,5 +10995,13 @@ body {
 .container-custom {
   background-color: white;
   border-radius: 10px;
+}
+
+a {
+  color: inherit;
+}
+
+a:hover {
+  color: green;
 }
 

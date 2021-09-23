@@ -5,9 +5,13 @@
 <div class="container ">
     <div class="row">
         @foreach ($articols as $articol)
-        <div class="col-4 articol-card">
+        <div class="col-12 col-md-6 col-lg-4 articol-card">
             <div class="articol-card-inner">
-                <h3> {{ $articol->title }}</h3>
+                <h3>
+                    <a href="{{ route('articols.show', $articol) }}">
+                        {{ $articol->title }}
+                    </a>
+                </h3>
                 <h6 class=""> di {{ $articol->author->name }} {{ $articol->author->surname }}</h6>
                 <img src="{{ $articol->img_path }}" alt="">                
                 <p> {{ $articol->articol_content }}</p>

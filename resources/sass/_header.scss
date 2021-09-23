@@ -2,6 +2,11 @@ header{
     text-align: center;
     padding: 24px 0;
 
+    img {
+        max-width: 100%;
+        min-width: 100px
+    }
+
 }
 
 nav {

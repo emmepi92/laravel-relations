@@ -5,6 +5,8 @@
 @import 'variables';
 @import 'header';
 @import 'home';
+@import 'show';
+
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
@@ -20,4 +22,10 @@ body {
 .container-custom {
     background-color: white;
     border-radius: 10px;
+}
+a{
+    color: inherit;
+    &:hover {
+        color: green;
+    }
 }
