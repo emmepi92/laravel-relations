@@ -24,7 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $articols = Articol::all();
+        $articols = Articol::paginate(9);
+
         foreach($articols as $articol) {
 
             $articol->articol_content= $this->cutTex($articol->articol_content);

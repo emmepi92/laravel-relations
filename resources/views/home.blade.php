@@ -21,4 +21,9 @@
     </div>
 </div>
 
+<div class="d-flex justify-content-center">
+    {{ $articols->links() }}
+
+</div>
+
 @endsection
