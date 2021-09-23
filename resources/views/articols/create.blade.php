@@ -20,12 +20,19 @@
 
 
         {{-- menu a tendina per autore  --}}
+
         <div class="form-group">
-            <h3>Info Autore</h3> 
-            <label for="author_name">Nome</label>
-            <input type="text" class="form-control" name="author_name" id="author_name">
-            <label for="author_surname">Cognome</label>
-            <input type="text" class="form-control" name="author_surname" id="author_surname">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="author_id">Autore</label>
+                </div>
+                <select class="custom-select" id="author_id" name="author_id">
+                    <option selected>Choose...</option>
+                    @foreach($authors as $author)
+                        <option value="{{$author->id}}">{{ $author->surname }} {{ $author->name }}</option>
+                    @endforeach
+                </select>
+            </div>
         </div>
     
     </form>

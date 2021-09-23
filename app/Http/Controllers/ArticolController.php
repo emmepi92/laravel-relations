@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Author;
 use Illuminate\Http\Request;
 
 class ArticolController extends Controller
@@ -23,7 +24,8 @@ class ArticolController extends Controller
      */
     public function create()
     {
-        return view('articols.create');
+        $authors = Author::all();
+        return view('articols.create', compact('authors'));
     }
 
     /**
