@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Articol;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $articols = Articol::all();
+        foreach($articols as $articol) {
+
+            $articol->articol_content= $this->cutTex($articol->articol_content);
+            $articol->title = ucwords($articol->title);
+        }
+
+        return view('home', compact('articols'));
+    }
+
+    private function cutTex ($text) {
+        $cutText = substr($text,0, 100);
+        $cutText =  $cutText . "...";
+        return $cutText;
     }
 }

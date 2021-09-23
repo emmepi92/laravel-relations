@@ -1,5 +1,32 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+header {
+  text-align: center;
+  padding: 24px 0;
+}
+
+nav {
+  margin-top: 24px;
+  border-radius: 10px;
+}
+
+.articol-card {
+  padding: 12px;
+}
+
+.articol-card-inner {
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 12px;
+}
+
+.articol-card-inner img {
+  width: 100%;
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -10944,5 +10971,14 @@ a.text-dark:focus {
 
 textarea {
   width: 100%;
+}
+
+body {
+  background-color: lightgreen;
+}
+
+.container-custom {
+  background-color: white;
+  border-radius: 10px;
 }
 

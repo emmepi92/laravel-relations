@@ -3,10 +3,21 @@
 
 // Variables
 @import 'variables';
+@import 'header';
+@import 'home';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
 textarea {
     width: 100%;
+}
+
+body {
+    background-color: lightgreen;
+}
+
+.container-custom {
+    background-color: white;
+    border-radius: 10px;
 }
