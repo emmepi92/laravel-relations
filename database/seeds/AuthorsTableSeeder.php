@@ -102,7 +102,5 @@ class AuthorsTableSeeder extends Seeder
             $articolObj->tag()->attach($tag2);
             $articolObj->tag()->attach($tag3);
         }
-
-
     }
 }

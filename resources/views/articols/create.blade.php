@@ -26,6 +26,23 @@
             <input type="text" class="form-control" name="img_path" id="img_path" placeholder="incolla qui l'url della tua immagine">
         </div>
 
+
+        {{-- qui tags --}}
+        <h5>Etichette</h5>
+        <div class="row">
+            @foreach ($tags as $tag)
+            <div class="col-2">
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" name="tags[]" value="{{ $tag->id }}">
+                    <label class="form-check-label" for="exampleCheck1">{{ $tag->name }}</label>                    
+                </div>
+            </div>                    
+            @endforeach
+        </div>
+
+
+
+
         <div class="form-group">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
