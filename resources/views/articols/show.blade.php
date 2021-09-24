@@ -15,7 +15,11 @@
                         
                     </div>
                 </div>
-                <div class="card-subtitle">Scritto da: {{ $articol->author->name }} {{ $articol->author->surname }}</div>
+                <div class="after-articol">
+                    <div class="card-subtitle">Scritto da: {{ $articol->author->name }} {{ $articol->author->surname }}</div>
+                    <button class="btn btn-success"><a href=" {{ route('articols.edit', $articol) }}">Modifica</a></button>
+
+                </div>
             </div>
         </div>
     </div>

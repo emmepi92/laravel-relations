@@ -44,14 +44,9 @@ class ArticolController extends Controller
             'img_path' => 'required|url|max:65500'
         ]);
 
-        $data= $request->all();
-
         $articol = new Articol();
-        $articol->title = $data['title'];
-        $articol->articol_content = $data['articol_content'];
-        $articol->author_id = $data['author_id'];
-        $articol->img_path = $data['img_path'];
-        $articol->save();
+
+        $this->fillAndSave($request, $articol);
 
         return redirect()->route('articols.show', $articol);
     }
@@ -75,9 +70,10 @@ class ArticolController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Articol $articol)
     {
-        //
+        $authors = Author::all();
+        return view('articols.edit', compact('articol','authors'));
     }
 
     /**
@@ -87,9 +83,11 @@ class ArticolController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Articol $articol)
     {
-        //
+        $this->fillAndSave($request, $articol);
+        
+        return redirect()->route ('articols.show', $articol);
     }
 
     /**
@@ -101,5 +99,17 @@ class ArticolController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function fillAndSave (Request $request, Articol $articol) {
+        $data= $request->all();
+
+        $articol->title = $data['title'];
+        $articol->articol_content = $data['articol_content'];
+        $articol->author_id = $data['author_id'];
+        $articol->img_path = $data['img_path'];
+
+        $articol->save();
+
     }
 }

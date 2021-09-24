@@ -23,7 +23,7 @@ body {
     background-color: white;
     border-radius: 10px;
 }
-a{
+a {
     color: inherit;
     &:hover {
         color: green;
@@ -33,4 +33,9 @@ a{
 .reset-padding-container {
     padding-left: 0;
     padding-right: 0;
+}
+
+.page-item.active .page-link {
+    background-color: $green;
+    border-color: $green;
 }

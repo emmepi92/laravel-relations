@@ -4,6 +4,8 @@ use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 use App\Articol;
 use App\Author;
+use App\Tag;
+
 
 class AuthorsTableSeeder extends Seeder
 {
@@ -14,6 +16,8 @@ class AuthorsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
+
+        // Giarnalisti Seeds
         $giornalisti=[
             [
                 'name'=>'Francesco',
@@ -34,6 +38,14 @@ class AuthorsTableSeeder extends Seeder
             [
                 'name'=>'Giovanna',
                 'surname'=>'Vitale'
+            ],
+            [
+                'name'=>'Salvo',
+                'surname'=>'Palazzolo'
+            ],
+            [
+                'name'=>'Diego',
+                'surname'=>'Costa'
             ]
         ];
 
@@ -47,18 +59,50 @@ class AuthorsTableSeeder extends Seeder
             $categoryListID[] = $author->id;
         }
 
-        for( $x=1; $x <=20; $x ++){
+        // Tag Seeds
+        $tagList =[
+            'sport',
+            'finanza',
+            'vip',
+            'italia',
+            'esteri',
+            'cibo',
+            'politica',
+            'calcio'
+        ];
+
+        $tagListID =[];
+
+        foreach($tagList as $tag) {
+            $tagObj = new Tag;
+            $tagObj->name = $tag;
+            $tagObj->save();
+            $tagListID[] = $tagObj->id;
+        }
+
+        //Article Seeds
+        for( $x=1; $x <=50; $x ++){
             $articolObj = new Articol();
             $articolObj->title = $faker->words(4, true);
             $articolObj->articol_content = $faker->paragraph(10);
-            $articolObj->img_path = $faker->imageUrl(640, 480, 'Repubblica', true);
-
+            $articolObj->img_path = $faker->imageUrl(640, 480, 'Boolbblica', true);
 
             $randCategoryKey = array_rand($categoryListID,1);
             $authorID = $categoryListID[$randCategoryKey];
             $articolObj->author_id = $authorID;
+
+            $randTagKeys = array_rand($tagListID,3);
+            $tag1 = $tagListID[$randTagKeys[0]];
+            $tag2 = $tagListID[$randTagKeys[1]];
+            $tag3 = $tagListID[$randTagKeys[2]];
+
             $articolObj->save();
+
+            $articolObj->tag()->attach($tag1);
+            $articolObj->tag()->attach($tag2);
+            $articolObj->tag()->attach($tag3);
         }
+
 
     }
 }

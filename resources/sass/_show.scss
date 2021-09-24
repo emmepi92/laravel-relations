@@ -15,5 +15,16 @@
             width: 100%;
         }
 
+        .after-articol {
+            button {
+                a {
+                    color: inherit;
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+
     }
 }
