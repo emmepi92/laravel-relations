@@ -59,11 +59,20 @@ nav {
   width: 100%;
 }
 
-.show .articol .after-articol button a {
+.show .articol .after-articol {
+  display: flex;
+  justify-content: space-between;
+}
+
+.show .articol .after-articol span {
+  font-size: 15px;
+}
+
+.show .articol button a {
   color: inherit;
 }
 
-.show .articol .after-articol button a:hover {
+.show .articol button a:hover {
   text-decoration: none;
 }
 

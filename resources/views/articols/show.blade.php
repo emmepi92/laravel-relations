@@ -11,15 +11,20 @@
                         <p class="card-text">{{ $articol->articol_content }}</p>
                     </div>
                     <div class="col-12 col-md-4">
-                        <img class="card-img-top mb-3" src="{{ $articol->img_path }}" alt="Card image cap">
-                        
+                        <img class="card-img-top mb-3" src="{{ $articol->img_path }}" alt="Card image cap">                        
                     </div>
                 </div>
                 <div class="after-articol">
                     <div class="card-subtitle">Scritto da: {{ $articol->author->name }} {{ $articol->author->surname }}</div>
-                    <button class="btn btn-success"><a href=" {{ route('articols.edit', $articol) }}">Modifica</a></button>
-
+                    <div>
+                        @foreach ($articol->tag as $tag)
+                        <span class="badge badge-success">{{ $tag->name }}</span>
+                            
+                        @endforeach
+                    </div>
+                    
                 </div>
+                <button class="btn btn-success"><a href=" {{ route('articols.edit', $articol) }}">Modifica</a></button>
             </div>
         </div>
     </div>

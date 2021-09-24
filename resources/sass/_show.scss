@@ -16,15 +16,21 @@
         }
 
         .after-articol {
-            button {
-                a {
-                    color: inherit;
-                    &:hover {
-                        text-decoration: none;
-                    }
+            display: flex;
+            justify-content: space-between;
+
+            span {
+                font-size: 15px;
+            }
+        }
+        
+        button {
+            a {
+                color: inherit;
+                &:hover {
+                    text-decoration: none;
                 }
             }
         }
-
     }
 }

@@ -108,10 +108,7 @@ class ArticolController extends Controller
 
         $articol->title = $data['title'];
         $articol->articol_content = $data['articol_content'];
-        $articol->img_path = $data['img_path'];
-
-        
-        
+        $articol->img_path = $data['img_path'];       
         
         $articol->author_id = $data['author_id'];
         
