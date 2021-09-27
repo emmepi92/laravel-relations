@@ -83,6 +83,7 @@ class AuthorsTableSeeder extends Seeder
         for( $x=1; $x <=50; $x ++){
             $articolObj = new Articol();
             $articolObj->title = $faker->words(4, true);
+            $articolObj->title = ucwords($articolObj->title);
             $articolObj->articol_content = $faker->paragraph(10);
             $articolObj->img_path = $faker->imageUrl(640, 480, 'Boolbblica', true);
 

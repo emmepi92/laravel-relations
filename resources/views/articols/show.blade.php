@@ -27,15 +27,39 @@
 
                 <div class="options-container">
                     <button class="btn btn-success"><a href=" {{ route('articols.edit', $articol) }}">Modifica</a></button>
-    
-                    <form action=" {{ route('articols.destroy', $articol) }} " method="POST">
-                        @csrf
-                        @method('DELETE')                  
-                        <button type="submit" class="btn btn-danger">
-                          Elimina
-                        </button>
-                    </form>
 
+
+                    <!-- Button trigger modal Article -->
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteArticle">
+                        Elimina
+                    </button>
+                    
+                    <!-- Modal Article -->
+                    <div class="modal fade" id="deleteArticle" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Attenzione: Eliminazione di un articolo</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                Sicuro di voler eliminare {{ $articol->title}}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success" data-dismiss="modal">Annulla</button>
+
+                                    <form action=" {{ route('articols.destroy', $articol) }} " method="POST">
+                                        @csrf
+                                        @method('DELETE')                  
+                                        <button type="submit" class="btn btn-danger">Elimina</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -63,8 +87,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="text">Testo commento:</label>
-                        <textarea name="text" id="text" cols="30" rows="10" placeholder="Scrivi qui il tuo commento"></textarea>
+                        <label for="text">Testo:</label>
+                        <textarea name="text" id="text" rows="3" placeholder="Scrivi qui il tuo commento"></textarea>
                         <button type="submit" class="btn btn-success">Pubblica commento</button>
                     </div>
                 </form>
@@ -83,36 +107,36 @@
                     <p>{{ $comment->text }}</p>
                     <div class="comment-info">Scritto da {{ $comment->author }}, il {{ $comment->created_at }}</div>
 
-                    <!-- Button trigger modal -->
+                    <!-- Button trigger modal comment-->
                     <button type="button" class="btn btn-success close-but" data-toggle="modal" data-target="#exampleModal{{$comment->id}}">
                         X
                     </button>
                     
-                    <!-- Modal -->
+                    <!-- Modal Coment -->
                     <div class="modal fade" id="exampleModal{{$comment->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Attenzione</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            </div>
-                            <div class="modal-body">
-                            Sicuro di voler eliminare il commento?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-success" data-dismiss="modal">Annulla</button>
-                                
-                                <form action=" {{ route('comment.destroy', $comment) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')   
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Attenzione</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                Sicuro di voler eliminare il commento di {{ $comment->author }}?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success" data-dismiss="modal">Annulla</button>
+                                    
+                                    <form action=" {{ route('comment.destroy', $comment) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')   
 
-                                    <button type="submit" class="btn btn-danger">Elimina</button>
+                                        <button type="submit" class="btn btn-danger">Elimina</button>
 
-                                </form>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
                         </div>
                     </div>
                 </div>
