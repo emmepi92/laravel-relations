@@ -96,6 +96,14 @@ class AuthorsTableSeeder extends Seeder
             $tag3 = $tagListID[$randTagKeys[2]];
 
             $articolObj->save();
+            
+            for($y=1; $y<=3; $y++){                
+                $newComment = new Comment;
+                $newComment->text = $faker->paragraph(2);
+                $newComment->author = $faker->lastName();
+                $newComment->articol_id = $articolObj->id;
+                $newComment->save();
+            }
 
             $articolObj->tag()->attach($tag1);
             $articolObj->tag()->attach($tag2);
@@ -103,5 +111,6 @@ class AuthorsTableSeeder extends Seeder
 
             
         }
+
     }
 }

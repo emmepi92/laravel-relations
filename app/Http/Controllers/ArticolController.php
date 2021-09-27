@@ -100,9 +100,11 @@ class ArticolController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Articol $articol)
     {
-        //
+        $articol->delete();
+
+        return redirect()-> route('home');
     }
 
     private function fillAndSave (Request $request, Articol $articol) {

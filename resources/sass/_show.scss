@@ -24,13 +24,51 @@
             }
         }
         
-        button {
-            a {
-                color: inherit;
-                &:hover {
-                    text-decoration: none;
-                } 
+        
+        .options-container {
+            display: flex;
+            
+            button {
+                margin-right: 10px;
+                a {
+                    color: inherit;
+                    &:hover {
+                        text-decoration: none;
+                    } 
+                }
             }
         }
+    }
+}
+
+.comments-container {
+    h3 {
+        margin-top: 30px;
+    }
+
+    .comment {
+        background-color: white;
+        border-radius: 10px;
+        margin: 12px 0;
+        padding: 12px 4px;
+        position: relative;
+
+        p {
+            margin-bottom: 0;
+            font-size: 20px;
+            width: 80%;
+        }
+
+        &-info {
+            text-align: end;
+        }
+
+        .close-but {
+            position: absolute;
+            right: 0;
+            top: 0;
+            border-top-right-radius: 10px;
+        }
+
     }
 }

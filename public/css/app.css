@@ -68,17 +68,49 @@ nav {
   font-size: 15px;
 }
 
-.show .articol button a {
+.show .articol .options-container {
+  display: flex;
+}
+
+.show .articol .options-container button {
+  margin-right: 10px;
+}
+
+.show .articol .options-container button a {
   color: inherit;
 }
 
-.show .articol button a:hover {
+.show .articol .options-container button a:hover {
   text-decoration: none;
 }
 
-.show .articol .interactions-container {
-  display: flex;
-  justify-content: space-evenly;
+.comments-container h3 {
+  margin-top: 30px;
+}
+
+.comments-container .comment {
+  background-color: white;
+  border-radius: 10px;
+  margin: 12px 0;
+  padding: 12px 4px;
+  position: relative;
+}
+
+.comments-container .comment p {
+  margin-bottom: 0;
+  font-size: 20px;
+  width: 80%;
+}
+
+.comments-container .comment-info {
+  text-align: end;
+}
+
+.comments-container .comment .close-but {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-top-right-radius: 10px;
 }
 
 /*!
