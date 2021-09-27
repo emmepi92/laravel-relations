@@ -5,6 +5,7 @@ use Faker\Generator as Faker;
 use App\Articol;
 use App\Author;
 use App\Tag;
+use App\Comment;
 
 
 class AuthorsTableSeeder extends Seeder
@@ -71,8 +72,6 @@ class AuthorsTableSeeder extends Seeder
             'Calcio'
         ];
 
-        $tagListID =[];
-
         foreach($tagList as $tag) {
             $tagObj = new Tag;
             $tagObj->name = $tag;
@@ -101,6 +100,8 @@ class AuthorsTableSeeder extends Seeder
             $articolObj->tag()->attach($tag1);
             $articolObj->tag()->attach($tag2);
             $articolObj->tag()->attach($tag3);
+
+            
         }
     }
 }

@@ -25,34 +25,47 @@
                     
                 </div>
                 <button class="btn btn-success"><a href=" {{ route('articols.edit', $articol) }}">Modifica</a></button>
-                <div class="interactions-container">
-                    <div> <button class="btn btn-success">Like</button></div>
-                    <div> <button class="btn btn-success">Commenta</button></div>
-                    <div> <button class="btn btn-success">Condividi</button></div>
-                </div>
             </div>
         </div>
     </div>
 </div>
 
 <div class="container show reset-padding-container">
-    <div class="row">
-        <div class="col">
-            <div class="comments-container">
-                <h3>Commenti</h3>
-            </div>
-        </div>
-    </div>
+    
     <div class="row">
         <div class="col">
             <div class="comments-container">
                 <h3>Lascia qui il tuo commento</h3>
+                @if ($errors->any())
+                <ul>
+                @foreach ($errors->all() as $error)
+                    <li> {{ $error }}</li>
+                @endforeach
+                </ul>
+                @endif
                 <form action="{{ route('comment.store', ['id'=>$articol->id]) }}" method='POST'>
                     @csrf
-                    <textarea name="text" id="text" cols="30" rows="10" placeholder="Scrivi qui..."></textarea>
-                    <button type="submit" class="btn btn-success">Pubblica co   mmento</button>
+                    <label for="title">Nome:</label>
+                    <input type="text" class="form-control" name="author" id="author" placeholder="Scrivi qui il tuo nome">
+                    <textarea name="text" id="text" cols="30" rows="10" placeholder="Scrivi qui il tuo commento"></textarea>
+                    <button type="submit" class="btn btn-success">Pubblica commento</button>
+                    
 
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="comments-container">
+                <h3>Commenti</h3>
+                @foreach ($articol->comment as $comment) 
+                <div>
+                    <p>{{ $comment->text }}</p>
+                    <span>Scritto da {{ $comment->author }}, il {{ $comment->created_at }}</span>
+                </div>                    
+                @endforeach  
             </div>
         </div>
     </div>

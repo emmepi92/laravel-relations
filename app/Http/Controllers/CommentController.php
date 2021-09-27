@@ -36,13 +36,18 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'text' => 'required|max:65500',
+            'author'=> 'required'
+        ]);
+        
         $comment = new Comment;
         $data= $request->all();
         // dd($data);
-        $comment->text = $data['text'];;
+        $comment->text = $data['text'];
+        $comment->author = $data['author'];
+        $comment->articol_id = $data['id'];
         $comment->save();
-
-        $comment->articol()->attach($data['id']);
 
         return redirect()->route('articols.show', $data['id']);
     }
