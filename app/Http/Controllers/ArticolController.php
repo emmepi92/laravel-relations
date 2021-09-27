@@ -6,6 +6,7 @@ use App\Author;
 use App\Articol;
 use App\Tag;
 use Illuminate\Http\Request;
+use App\Comment;
 
 class ArticolController extends Controller
 {

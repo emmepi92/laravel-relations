@@ -34,4 +34,27 @@
         </div>
     </div>
 </div>
+
+<div class="container show reset-padding-container">
+    <div class="row">
+        <div class="col">
+            <div class="comments-container">
+                <h3>Commenti</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="comments-container">
+                <h3>Lascia qui il tuo commento</h3>
+                <form action="{{ route('comment.store', ['id'=>$articol->id]) }}" method='POST'>
+                    @csrf
+                    <textarea name="text" id="text" cols="30" rows="10" placeholder="Scrivi qui..."></textarea>
+                    <button type="submit" class="btn btn-success">Pubblica co   mmento</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
