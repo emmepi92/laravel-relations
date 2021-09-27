@@ -25,6 +25,11 @@
                     
                 </div>
                 <button class="btn btn-success"><a href=" {{ route('articols.edit', $articol) }}">Modifica</a></button>
+                <div class="interactions-container">
+                    <div> <button class="btn btn-success">Like</button></div>
+                    <div> <button class="btn btn-success">Commenta</button></div>
+                    <div> <button class="btn btn-success">Condividi</button></div>
+                </div>
             </div>
         </div>
     </div>

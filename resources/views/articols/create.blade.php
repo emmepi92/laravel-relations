@@ -33,8 +33,8 @@
             @foreach ($tags as $tag)
             <div class="col-2">
                 <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" name="tags[]" value="{{ $tag->id }}">
-                    <label class="form-check-label" for="exampleCheck1">{{ $tag->name }}</label>                    
+                    <input type="checkbox" class="form-check-input" id="{{$tag->id}}" name="tags[]" value="{{ $tag->id }}">
+                    <label class="form-check-label" for="{{ $tag->id }}">{{ $tag->name }}</label>                    
                 </div>
             </div>                    
             @endforeach

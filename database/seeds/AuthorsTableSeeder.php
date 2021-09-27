@@ -61,14 +61,14 @@ class AuthorsTableSeeder extends Seeder
 
         // Tag Seeds
         $tagList =[
-            'sport',
-            'finanza',
-            'vip',
-            'italia',
-            'esteri',
-            'cibo',
-            'politica',
-            'calcio'
+            'Sport',
+            'Finanza',
+            'Vip',
+            'Italia',
+            'Esteri',
+            'Cibo',
+            'Politica',
+            'Calcio'
         ];
 
         $tagListID =[];

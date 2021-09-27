@@ -29,8 +29,12 @@
                 color: inherit;
                 &:hover {
                     text-decoration: none;
-                }
+                } 
             }
+        }
+        .interactions-container {
+            display: flex;
+            justify-content: space-evenly;
         }
     }
 }

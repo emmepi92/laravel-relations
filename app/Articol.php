@@ -13,5 +13,9 @@ class Articol extends Model
     public function tag() {			    
         return $this->belongsToMany(Tag::class);  
     }
+
+    public function comment() {			    
+        return $this->belongsToMany(Comment::class);  
+    }
 }
 

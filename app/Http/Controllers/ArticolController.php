@@ -75,7 +75,8 @@ class ArticolController extends Controller
     public function edit(Articol $articol)
     {
         $authors = Author::all();
-        return view('articols.edit', compact('articol','authors'));
+        $tags = Tag::all();
+        return view('articols.edit', compact('articol','tags','authors'));
     }
 
     /**
@@ -86,7 +87,7 @@ class ArticolController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Articol $articol)
-    {
+    {   
         $this->fillAndSave($request, $articol);
         
         return redirect()->route ('articols.show', $articol);
@@ -104,7 +105,10 @@ class ArticolController extends Controller
     }
 
     private function fillAndSave (Request $request, Articol $articol) {
+        
         $data= $request->all();
+        // dd($data);
+
 
         $articol->title = $data['title'];
         $articol->articol_content = $data['articol_content'];
@@ -116,9 +120,7 @@ class ArticolController extends Controller
         
         if(array_key_exists('tags', $data)) {
 
-            foreach($data['tags'] as $tagId) {
-                $articol->tag()->attach($tagId);
-            }
+            $articol->tag()->sync($data['tags']);
         }
     }
 }

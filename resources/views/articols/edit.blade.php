@@ -31,6 +31,23 @@
             <input type="text" class="form-control" name="img_path" id="img_path" value="{{ $articol->img_path }}">
         </div>
 
+        <h5>Etichette</h5>
+        <div class="row">
+            @foreach ($tags as $tag)
+            <div class="col-2">
+                <div class="form-group form-check">
+                 @if($articol->tag->contains($tag->id))    
+                    <input checked name="tags[]" type="checkbox" class="form-check-input" id="{{$tag->id}}" value="{{ $tag->id }}">
+                    <label class="form-check-label" for="{{ $tag->id }}">{{ $tag->name }}</label>       
+                @else 
+                    <input name="tags[]" type="checkbox"  class="form-check-input" id="{{$tag->id}}" value="{{ $tag->id }}">
+                    <label class="form-check-label" for="{{ $tag->id }}">{{ $tag->name }}</label>  
+                @endif 
+                </div>
+            </div>                    
+            @endforeach
+        </div>
+
         <div class="form-group">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -48,6 +65,8 @@
                 </select>
             </div>
         </div>
+
+        
 
         <button type="submit" class="btn btn-success">Submit</button>
     
